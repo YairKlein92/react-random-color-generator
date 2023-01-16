@@ -1,8 +1,7 @@
-import React from 'react';
 import './App.css';
-import { useState } from 'react';
 import randomColor from 'randomcolor';
-import AnimatedBg from 'react-animated-bg';
+import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 export default function App() {
   const [color, setColor] = useState(randomColor());
@@ -70,6 +69,10 @@ export default function App() {
           height: Number(height),
           width: Number(width),
           backgroundColor: bgColor,
+          WebkitTransition: 'background-color 2s ease-out',
+          MozTransition: 'background-color 2s ease-out',
+          OTransition: 'background-color 2s ease-out',
+          transition: 'background-color 2s ease-out',
         }}
       >
         Generated Color: {bgColor}
