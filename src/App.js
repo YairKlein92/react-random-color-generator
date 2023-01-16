@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { useState } from 'react';
 import randomColor from 'randomcolor';
-// import copy from 'clipboard-copy';
+import AnimatedBg from 'react-animated-bg';
 
 export default function App() {
   const [color, setColor] = useState(randomColor());
@@ -10,6 +10,8 @@ export default function App() {
   const [hue, setHue] = useState(undefined);
   const [lum, setLum] = useState(undefined);
 
+  const [height, setHeight] = useState(200);
+  const [width, setWidth] = useState(200);
   const userColor = randomColor({
     luminosity: lum,
     hue: hue,
@@ -39,6 +41,20 @@ export default function App() {
           setLum(event.target.value);
         }}
       />
+      Width:
+      <input
+        value={width}
+        onChange={(event) => {
+          setWidth(event.currentTarget.value);
+        }}
+      />
+      Height:
+      <input
+        value={height}
+        onChange={(event) => {
+          setHeight(event.currentTarget.value);
+        }}
+      />
       <br />
       or
       <br />
@@ -51,8 +67,8 @@ export default function App() {
       </button>
       <div
         style={{
-          height: '320px',
-          width: '200px',
+          height: Number(height),
+          width: Number(width),
           backgroundColor: bgColor,
         }}
       >
