@@ -89,15 +89,20 @@ export default function App() {
         style={{
           height: Number(height),
           width: Number(width),
+          borderRadius: '60%',
           backgroundColor: bgColor,
+          textAlign: 'center',
           margin: 'auto',
-          WebkitTransition: 'background-color 2s ease-out',
-          MozTransition: 'background-color 2s ease-out',
-          OTransition: 'background-color 2s ease-out',
-          transition: 'background-color 2s ease-out',
+          WebkitTransition: 'background-color 3s ease-out',
+          MozTransition: 'background-color 3s ease-out',
+          OTransition: 'background-color 3s ease-out',
+          transition: 'background-color 3s ease-out',
         }}
       >
-        Generated Color: {bgColor}
+        <div style={{ position: 'relative', bottom: '170px', left: '320px' }}>
+          {' '}
+          Generated Color: {bgColor}
+        </div>
       </div>
     </div>
   );
