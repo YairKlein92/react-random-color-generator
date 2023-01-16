@@ -1,7 +1,6 @@
 import './App.css';
 import randomColor from 'randomcolor';
 import React, { useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
 
 export default function App() {
   const [color, setColor] = useState(randomColor());
@@ -23,52 +22,75 @@ export default function App() {
   // }
 
   return (
-    <div>
-      <h1>Random Color Generator with React </h1>
-      Hue:
-      <input
-        value={hue}
-        onChange={(event) => {
-          setHue(event.target.value);
-        }}
-      />
-      <br />
-      Luminosity:
-      <input
-        value={lum}
-        onChange={(event) => {
-          setLum(event.target.value);
-        }}
-      />
-      Width:
-      <input
-        value={width}
-        onChange={(event) => {
-          setWidth(event.currentTarget.value);
-        }}
-      />
-      Height:
-      <input
-        value={height}
-        onChange={(event) => {
-          setHeight(event.currentTarget.value);
-        }}
-      />
-      <br />
-      or
-      <br />
-      <button
-        onClick={() => {
-          setColor(randomColor());
+    <div
+      style={{
+        margin: '30px',
+        border: '3px dotted grey',
+        padding: '20px',
+      }}
+    >
+      <h1 style={{ textAlign: 'center' }}>
+        Random Color Generator with React{' '}
+      </h1>
+      <div
+        style={{
+          width: '12%',
+          margin: 'auto',
         }}
       >
-        Generate a random color
-      </button>
+        Hue:
+        <br />
+        <input
+          value={hue}
+          onChange={(event) => {
+            setHue(event.target.value);
+          }}
+        />
+        <br />
+        Luminosity:
+        <br />
+        <input
+          value={lum}
+          onChange={(event) => {
+            setLum(event.target.value);
+          }}
+        />
+        <br />
+        Width:
+        <br />
+        <input
+          value={width}
+          onChange={(event) => {
+            setWidth(event.currentTarget.value);
+          }}
+        />
+        <br />
+        Height:
+        <br />
+        <input
+          value={height}
+          onChange={(event) => {
+            setHeight(event.currentTarget.value);
+          }}
+        />
+        <br />
+        or
+        <br />
+        <button
+          style={{ marginBottom: '30px' }}
+          onClick={() => {
+            setColor(randomColor());
+          }}
+        >
+          Generate a random color
+        </button>
+      </div>
       <div
         style={{
           height: Number(height),
           width: Number(width),
           backgroundColor: bgColor,
+          margin: 'auto',
           WebkitTransition: 'background-color 2s ease-out',
           MozTransition: 'background-color 2s ease-out',
           OTransition: 'background-color 2s ease-out',
