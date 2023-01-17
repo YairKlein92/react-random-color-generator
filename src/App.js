@@ -123,10 +123,7 @@ export default function App() {
           transition: 'background-color 3s ease-out',
         }}
       >
-        <div style={{ position: 'relative', bottom: '170px', left: '320px' }}>
-          {' '}
-          Generated Color: {userColor}
-        </div>
+        <div>Generated Color: {userColor}</div>
       </div>
     </div>
   );
