@@ -123,7 +123,7 @@ export default function App() {
           transition: 'background-color 0.3s ease-out',
         }}
       >
-        <div>Generated Color: {userColor}</div>
+        Generated Color: {userColor}
       </div>
     </div>
   );
