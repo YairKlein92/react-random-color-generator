@@ -86,11 +86,9 @@ export default function App() {
           }}
           onClick={() => {
             setColor(randomColor());
-            setHue(undefined);
-            setLum(undefined);
           }}
         >
-          Generate a random color
+          Generate a random {lum} {hue} color
         </button>
       </div>
       <div
