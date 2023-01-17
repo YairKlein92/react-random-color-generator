@@ -1,7 +1,8 @@
 import './App.css';
 import randomColor from 'randomcolor';
 import React, { useState } from 'react';
-import Buttons from './Button.js';
+
+// import Button from './Button.js';
 
 export default function App() {
   const [color, setColor] = useState(randomColor()); // a random color
@@ -10,14 +11,13 @@ export default function App() {
   const [lum, setLum] = useState(undefined);
   const [height, setHeight] = useState(200);
   const [width, setWidth] = useState(200);
-  const [hueInputValue, setHueInputValue] = useState('');
   const userColor = randomColor({
     luminosity: lum,
     hue: hue,
   });
 
   const bgColor = lum && hue ? userColor : color;
-  const buttonText = lum && hue ? `${lum} ${hue}` : '';
+  const buttonText = lum || hue ? `${lum} ${hue}` : '';
   // function handleChange(event) {
   //   console.log(event.target.value);
   //   return event.target.value;
@@ -27,12 +27,13 @@ export default function App() {
     <div
       style={{
         margin: '30px',
-        border: '3px dotted grey',
+        border: '15px inset salmon',
+        borderRadius: '30px',
         padding: '20px',
       }}
     >
-      <h1 style={{ textAlign: 'center' }}>
-        Random Color Generator with React{' '}
+      <h1 style={{ textAlign: 'center', color: 'salmon' }}>
+        Random Color Generator with React
       </h1>
       <div
         style={{
@@ -43,6 +44,7 @@ export default function App() {
         Hue:
         <br />
         <input
+          style={{ border: '5px inset salmon' }}
           placeholder="green"
           value={hue}
           onChange={(event) => {
@@ -53,6 +55,7 @@ export default function App() {
         Luminosity:
         <br />
         <input
+          style={{ border: '5px inset salmon' }}
           placeholder="dark"
           value={lum}
           onChange={(event) => {
@@ -63,6 +66,7 @@ export default function App() {
         Width:
         <br />
         <input
+          style={{ border: '5px inset salmon' }}
           value={width}
           onChange={(event) => {
             setWidth(event.currentTarget.value);
@@ -72,6 +76,7 @@ export default function App() {
         Height :
         <br />
         <input
+          style={{ border: '5px inset salmon' }}
           value={height}
           onChange={(event) => {
             setHeight(event.currentTarget.value);
@@ -84,9 +89,10 @@ export default function App() {
         <br />
         <button
           style={{
+            borderColor: 'salmon',
             marginBottom: '30px',
             padding: '15px',
-            borderRadius: '10px',
+            borderRadius: '10px salmon',
           }}
           onClick={() => {
             setColor(userColor);
@@ -96,6 +102,7 @@ export default function App() {
         </button>
         <button
           style={{
+            borderColor: 'salmon',
             marginBottom: '30px',
             padding: '15px',
             borderRadius: '10px',
@@ -108,7 +115,6 @@ export default function App() {
         >
           Generate a random color
         </button>
-        <Buttons />
       </div>
       <div
         style={{
