@@ -16,13 +16,6 @@ export default function App() {
     hue: hue,
   });
 
-  const bgColor = lum && hue ? userColor : color;
-  const buttonText = lum || hue ? `${lum} ${hue}` : '';
-  // function handleChange(event) {
-  //   console.log(event.target.value);
-  //   return event.target.value;
-  // }
-
   return (
     <div
       style={{
@@ -98,7 +91,7 @@ export default function App() {
             setColor(userColor);
           }}
         >
-          Generate a random {buttonText} color
+          Generate a random {lum} {hue} color
         </button>
         <button
           style={{
@@ -121,7 +114,7 @@ export default function App() {
           height: Number(height),
           width: Number(width),
           borderRadius: '60%',
-          backgroundColor: bgColor,
+          backgroundColor: userColor,
           textAlign: 'center',
           margin: 'auto',
           WebkitTransition: 'background-color 3s ease-out',
@@ -132,7 +125,7 @@ export default function App() {
       >
         <div style={{ position: 'relative', bottom: '170px', left: '320px' }}>
           {' '}
-          Generated Color: {bgColor}
+          Generated Color: {userColor}
         </div>
       </div>
     </div>
