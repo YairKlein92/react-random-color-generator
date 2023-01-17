@@ -1,21 +1,23 @@
 import './App.css';
 import randomColor from 'randomcolor';
 import React, { useState } from 'react';
+import Buttons from './Button.js';
 
 export default function App() {
-  const [color, setColor] = useState(randomColor());
+  const [color, setColor] = useState(randomColor()); // a random color
   console.log(color);
   const [hue, setHue] = useState(undefined);
   const [lum, setLum] = useState(undefined);
-
   const [height, setHeight] = useState(200);
   const [width, setWidth] = useState(200);
+  const [hueInputValue, setHueInputValue] = useState('');
   const userColor = randomColor({
     luminosity: lum,
     hue: hue,
   });
 
   const bgColor = lum && hue ? userColor : color;
+  const buttonText = lum && hue ? `${lum} ${hue}` : '';
   // function handleChange(event) {
   //   console.log(event.target.value);
   //   return event.target.value;
@@ -76,7 +78,9 @@ export default function App() {
           }}
         />
         <br />
+        <br />
         or
+        <br />
         <br />
         <button
           style={{
@@ -85,11 +89,26 @@ export default function App() {
             borderRadius: '10px',
           }}
           onClick={() => {
+            setColor(userColor);
+          }}
+        >
+          Generate a random {buttonText} color
+        </button>
+        <button
+          style={{
+            marginBottom: '30px',
+            padding: '15px',
+            borderRadius: '10px',
+          }}
+          onClick={() => {
+            setHue('');
+            setLum('');
             setColor(randomColor());
           }}
         >
-          Generate a random {lum} {hue} color
+          Generate a random color
         </button>
+        <Buttons />
       </div>
       <div
         style={{
