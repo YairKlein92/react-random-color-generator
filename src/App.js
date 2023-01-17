@@ -41,6 +41,7 @@ export default function App() {
         Hue:
         <br />
         <input
+          placeholder="green"
           value={hue}
           onChange={(event) => {
             setHue(event.target.value);
@@ -50,6 +51,7 @@ export default function App() {
         Luminosity:
         <br />
         <input
+          placeholder="dark"
           value={lum}
           onChange={(event) => {
             setLum(event.target.value);
@@ -65,7 +67,7 @@ export default function App() {
           }}
         />
         <br />
-        Height:
+        Height :
         <br />
         <input
           value={height}
@@ -77,9 +79,15 @@ export default function App() {
         or
         <br />
         <button
-          style={{ marginBottom: '30px' }}
+          style={{
+            marginBottom: '30px',
+            padding: '15px',
+            borderRadius: '10px',
+          }}
           onClick={() => {
             setColor(randomColor());
+            setHue(undefined);
+            setLum(undefined);
           }}
         >
           Generate a random color
