@@ -117,10 +117,10 @@ export default function App() {
           backgroundColor: userColor,
           textAlign: 'center',
           margin: 'auto',
-          WebkitTransition: 'background-color 3s ease-out',
-          MozTransition: 'background-color 3s ease-out',
-          OTransition: 'background-color 3s ease-out',
-          transition: 'background-color 3s ease-out',
+          // WebkitTransition: 'background-color 0.3s ease-out',
+          // MozTransition: 'background-color 0.3s ease-out',
+          // OTransition: 'background-color 0.3s ease-out',
+          transition: 'background-color 0.3s ease-out',
         }}
       >
         <div>{`Generated Color: ${userColor}`}</div>
